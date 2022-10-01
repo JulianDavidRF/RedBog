@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">RedBog</string>
+    <string-array name="localidades">
+        <item>Seleccion localidad del reporte</item>
+        <item>Usaquen</item>
+        <item>Chapinero</item>
+        <item>Santa Fe</item>
+        <item>Tunjuelito</item>
+        <item>Bosa</item>
+        <item>Kennedy</item>
+    </string-array>
+    <string-array name="tipologia">
+        <item>Tipo de acto ilicito</item>
+        <item>Robo</item>
+        <item>Agresion</item>
+        <item>Asalto</item>
+    </string-array>
 </resources>
