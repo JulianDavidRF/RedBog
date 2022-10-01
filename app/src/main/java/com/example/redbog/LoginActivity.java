@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if(estado){
-            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,1);
+            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,6);
             SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
             Cursor fila = BaseDeDatos.rawQuery
@@ -53,6 +53,8 @@ public class LoginActivity extends AppCompatActivity {
                     Intent principal = new Intent(this,PrincipalActivity.class);
                     principal.putExtra("celular",celular);
                     startActivity(principal);
+
+
                 } else {
                     Toast.makeText(this, "Contraseña Errada.", Toast.LENGTH_SHORT).show();
                 }
