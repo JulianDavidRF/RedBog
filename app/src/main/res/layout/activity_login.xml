@@ -111,13 +111,14 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="1dp"
-        android:background="@color/material_on_primary_disabled"
+
         android:onClick="registrarUsuario"
         android:text="REGISTRARME"
         android:textColor="@color/purple_500"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
+    <!--android:background="@color/material_on_primary_disabled"-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
