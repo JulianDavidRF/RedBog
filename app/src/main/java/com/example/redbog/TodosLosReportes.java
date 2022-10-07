@@ -106,4 +106,12 @@ public class TodosLosReportes extends AppCompatActivity {
         recycler.setAdapter(listAdapter2);
     }
 
+    public void init2() {
+        ListAdapter2 listAdapter2 = new ListAdapter2(misReportesLista, this);
+        RecyclerView recycler = findViewById(R.id.recycler);
+        recycler.setHasFixedSize(true);
+        recycler.setLayoutManager(new LinearLayoutManager(this));
+        recycler.setAdapter(listAdapter2);
+    }
+
 }
