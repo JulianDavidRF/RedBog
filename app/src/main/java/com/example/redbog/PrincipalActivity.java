@@ -56,4 +56,13 @@ public class PrincipalActivity extends AppCompatActivity {
 
 
     }
+
+    public void irAreportes(View view){
+
+        Intent principal = new Intent(this, TodosLosReportes.class);
+        principal.putExtra("celular",celular);
+        startActivity(principal);
+
+
+    }
 }

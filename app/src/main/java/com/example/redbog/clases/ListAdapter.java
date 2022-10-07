@@ -32,7 +32,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View view = mInflater.inflate(R.layout.activity_list_element,null);
+        View view = mInflater.inflate(R.layout.activity_list_element2,null);
         return new ViewHolder(view);
     }
 
