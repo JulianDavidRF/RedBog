@@ -7,7 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Dialog;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.redbog.clases.ListAdapter;
@@ -23,6 +27,7 @@ public class misReportesActivity extends AppCompatActivity {
     List<Reporte> misReportesLista;
     String celular;
     Dialog dialog;
+
 
 
     @Override
@@ -69,6 +74,23 @@ public class misReportesActivity extends AppCompatActivity {
         recycler.setHasFixedSize(true);
         recycler.setLayoutManager(new LinearLayoutManager(this));
         recycler.setAdapter(listAdapter);
+    }
+
+    public void alertDialog(View view){
+        openAlert();
+    }
+
+    private void openAlert() {
+        dialog.setContentView(R.layout.alert_message);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        ImageView close = dialog.findViewById(R.id.close_icon);
+        dialog.show();
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
     }
 
 
