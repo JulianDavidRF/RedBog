@@ -15,6 +15,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private TextInputEditText Celular;
     private TextInputEditText Contraseña;
+    String nombre;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,18 +42,22 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if(estado){
-            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,6);
+            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,7);
             SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
             Cursor fila = BaseDeDatos.rawQuery
-                    ("select contraseña from usuario where celular ="+celular,null);
+                    ("select * from usuario where celular ="+celular,null);
 
             if(fila.moveToFirst()){
-                if(fila.getString(0).equals(contraseña)){
-                    Toast.makeText(this, "Bienvenido.", Toast.LENGTH_SHORT).show();
+                if(fila.getString(3).equals(contraseña)){
+                    nombre = fila.getString(1);
+                    Toast.makeText(this, "Bienvenido " +  nombre, Toast.LENGTH_SHORT).show();
+
+
 
                     Intent principal = new Intent(this,PrincipalActivity.class);
                     principal.putExtra("celular",celular);
+                    principal.putExtra("nombre",nombre);
                     startActivity(principal);
 
 

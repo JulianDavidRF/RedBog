@@ -14,7 +14,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase BaseDeDatos) {
         BaseDeDatos.execSQL("create table usuario(celular int primary key,nombre text, correo text, contraseña text)");
-        BaseDeDatos.execSQL("create table reporte(id integer primary key autoincrement, celular int ,tipo_reporte text, localidad text,comentario text, fecha text,hora text)");
+        BaseDeDatos.execSQL("create table reporte(id integer primary key autoincrement, celular int ,tipo_reporte text, localidad text,comentario text, fecha text,hora text,nombre text)");
     }
 
     /*

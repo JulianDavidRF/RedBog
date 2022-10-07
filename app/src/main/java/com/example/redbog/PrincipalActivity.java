@@ -6,22 +6,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class PrincipalActivity extends AppCompatActivity {
 
     private Button button;
+    String celular;
+    String nombre;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        celular =  getIntent().getStringExtra("celular");
+        nombre =  getIntent().getStringExtra("nombre");
+
+
         setContentView(R.layout.activity_principal);
-        button = findViewById(R.id.crear_reporte);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openCrearReporte();
-            }
-        });
+
     }
 
     public void volver(View view){
@@ -29,9 +33,27 @@ public class PrincipalActivity extends AppCompatActivity {
         startActivity(irLogin);
     }
 
-    public void openCrearReporte(){
+    /*public void openCrearReporte(){
         Intent crearReporte  =  new Intent(this,CrearReporteActivity.class);
         startActivity(crearReporte);
+
+    }*/
+    public void irAcrearReporte(View view){
+
+        Intent principal = new Intent(this,CrearReporteActivity.class);
+        principal.putExtra("celular",celular);
+        principal.putExtra("nombre",nombre);
+        startActivity(principal);
+
+
+    }
+
+    public void irAmisReportes(View view){
+
+        Intent principal = new Intent(this, misReportesActivity.class);
+        principal.putExtra("celular",celular);
+        startActivity(principal);
+
 
     }
 }
