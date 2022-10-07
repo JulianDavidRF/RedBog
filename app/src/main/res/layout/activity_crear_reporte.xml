@@ -14,7 +14,7 @@
         android:layout_marginEnd="1dp"
         android:background="@color/purple_500"
         android:text="PUBLICAR REPORTE"
-
+        android:onClick="reporte"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,6 +22,7 @@
         app:layout_constraintVertical_bias="0.423" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
@@ -29,12 +30,12 @@
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/mensaje"
         app:layout_constraintTop_toBottomOf="@+id/spinner3"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="20dp">
+        app:layout_constraintVertical_bias="0.432"
+        tools:layout_editor_absoluteX="16dp">
 
 
         <com.google.android.material.textfield.TextInputEditText
-
+            android:id="@+id/texto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Describe los hechos sucedidos" />
@@ -78,22 +79,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner3"
         app:layout_constraintVertical_bias="0.384"
-        tools:layout_editor_absoluteX="39dp">
+        tools:layout_editor_absoluteX="39dp"/>
 
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/mensajeInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:background="@color/light_gray"
-            android:inputType="textMultiLine"
-            android:lines="5"
-            android:overScrollMode="always"
-            android:scrollbarStyle="insideInset"
-            android:textColor="@color/black"
-
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/mensaje_reporte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:textColor="@color/black"
+        android:lines="4"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -65,7 +65,7 @@ public class RegistroActivity extends AppCompatActivity {
         }
 
         if (estado) {
-            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 6);
+            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 7);
             SQLiteDatabase BaseDeDatos = admin.getReadableDatabase();
 
             Cursor fila = BaseDeDatos.rawQuery
