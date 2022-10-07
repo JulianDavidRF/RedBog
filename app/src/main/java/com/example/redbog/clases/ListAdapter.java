@@ -46,14 +46,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView name, tipologia,comentario,fecha_hora,id;
+        TextView name, tipologia,comentario,fecha_hora;
         ViewHolder(View itemView){
             super(itemView);
             name = itemView.findViewById(R.id.name);
             tipologia =itemView.findViewById(R.id.tipologia);
             comentario =itemView.findViewById(R.id.comentario);
             fecha_hora =itemView.findViewById(R.id.fecha_hora);
-            id =  itemView.findViewById(R.id.ID);
 
         }
         void bindData(final Reporte reporte){
@@ -61,11 +60,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             tipologia.setText(reporte.getTipologia());
             comentario.setText(reporte.getReporte());
             fecha_hora.setText(reporte.getFecha());
-            String idString = String.valueOf(reporte.getId());
-            id.setText(idString);
         }
     }
-
 
 
 
