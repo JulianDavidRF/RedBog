@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.redbog.clases.ListAdapter;
+import com.example.redbog.clases.ListAdapter2;
 import com.example.redbog.clases.Reporte;
 import com.example.redbog.stack.StackRef;
 
@@ -70,11 +71,11 @@ public class TodosLosReportes extends AppCompatActivity {
     }
 
     public void init() {
-        ListAdapter listAdapter = new ListAdapter(misReportesLista, this);
+        ListAdapter2 listAdapter2 = new ListAdapter2(misReportesLista, this);
         RecyclerView recycler = findViewById(R.id.recycler);
         recycler.setHasFixedSize(true);
         recycler.setLayoutManager(new LinearLayoutManager(this));
-        recycler.setAdapter(listAdapter);
+        recycler.setAdapter(listAdapter2);
     }
 
 }

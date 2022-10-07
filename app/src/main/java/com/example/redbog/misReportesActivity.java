@@ -70,4 +70,15 @@ public class misReportesActivity extends AppCompatActivity {
         recycler.setLayoutManager(new LinearLayoutManager(this));
         recycler.setAdapter(listAdapter);
     }
+
+
+
+
+
+
+
+
+
+
+
 }

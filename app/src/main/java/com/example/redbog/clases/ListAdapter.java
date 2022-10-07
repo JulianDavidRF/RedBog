@@ -16,6 +16,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<Reporte> reporte ;
     private LayoutInflater mInflater;
     private Context contexto;
+    private ListAdapter listAdapter;
 
     public ListAdapter(List<Reporte> reporte, Context contexto){
         this.mInflater = LayoutInflater.from(contexto);
@@ -32,7 +33,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View view = mInflater.inflate(R.layout.activity_list_element2,null);
+        View view = mInflater.inflate(R.layout.activity_list_element,null);
         return new ViewHolder(view);
     }
 

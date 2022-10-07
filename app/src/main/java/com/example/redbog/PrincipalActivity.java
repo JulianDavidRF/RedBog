@@ -13,6 +13,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private Button button;
     String celular;
     String nombre;
+    String id;
 
 
 
@@ -22,6 +23,7 @@ public class PrincipalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         celular =  getIntent().getStringExtra("celular");
         nombre =  getIntent().getStringExtra("nombre");
+        id =    getIntent().getStringExtra("id");
 
 
         setContentView(R.layout.activity_principal);
