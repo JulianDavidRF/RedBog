@@ -101,24 +101,7 @@ public class misReportesActivity extends AppCompatActivity implements RecyclerVi
 
 
 
-    private void openAlert() {
 
-        dialog.setContentView(R.layout.activity_alert_message);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        ImageView close = dialog.findViewById(R.id.close_icon);
-        dialog.show();
-        TextView id = findViewById(R.id.ID);
-        Toast.makeText(this,"id : " + id.getText().toString(),Toast.LENGTH_SHORT).show();
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-
-        });
-
-
-    }
 
 
 
@@ -129,7 +112,24 @@ public class misReportesActivity extends AppCompatActivity implements RecyclerVi
     public void onItemClick(int position) {
         Toast.makeText(this, "id" + misReportesLista.get(position).getId(), Toast.LENGTH_SHORT).show();
         //Toast.makeText(this, "el reporte : " + misReportesLista.get(position).getReporte(), Toast.LENGTH_SHORT).show();
-        this.id = position;
+        this.id = misReportesLista.get(position).getId();
+
+
+    }
+    private void openAlert() {
+
+        dialog.setContentView(R.layout.activity_alert_message);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        ImageView close = dialog.findViewById(R.id.close_icon);
+        dialog.show();
+        Toast.makeText(this,"id : " + id,Toast.LENGTH_SHORT).show();
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+
+        });
 
 
     }
@@ -188,24 +188,17 @@ public class misReportesActivity extends AppCompatActivity implements RecyclerVi
 
         return correct;
 
-
-
-
-
-
-
-
-
     }
 
 
-
-
+    // Cuando le daba a la basura el id que aparecia no era el correcto debido a que se le estaba poniando un onclick a la basura
+    //Ese onclick hacia un override al onclick que mostraba el id, y por ende ya no lo tomaba
+    //Para solucionar esto, se le creo un onclick a la basura dentro del adapter
     public void Borrar(View view) {
         int position = this.id;
 
         //Toast.makeText(this, "SI ENTROOO" + misReportesLista.get(position).getId(), Toast.LENGTH_SHORT).show();
-        position = misReportesLista.get(position).getId();
+        //position = misReportesLista.get(position).getId();
         Toast.makeText(this, "el id : " + position, Toast.LENGTH_SHORT).show();
         boolean funcionepls = delete(position);
         if(funcionepls ){
