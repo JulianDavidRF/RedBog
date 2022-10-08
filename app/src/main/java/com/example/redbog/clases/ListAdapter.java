@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.redbog.R;
+import com.example.redbog.RecyclerViewClickInterface;
 
 import java.util.List;
 
@@ -17,11 +18,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private LayoutInflater mInflater;
     private Context contexto;
     private ListAdapter listAdapter;
+    private RecyclerViewClickInterface recyclerViewClickInterface;
 
-    public ListAdapter(List<Reporte> reporte, Context contexto){
+    public ListAdapter(List<Reporte> reporte, Context contexto,RecyclerViewClickInterface recyclerViewClickInterface){
         this.mInflater = LayoutInflater.from(contexto);
         this.contexto = contexto;
         this.reporte = reporte;
+        this.recyclerViewClickInterface = recyclerViewClickInterface;
 
     }
 
@@ -46,7 +49,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         reporte = reportes;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView name, tipologia,comentario,fecha_hora,id;
         ViewHolder(View itemView){
             super(itemView);
@@ -55,6 +58,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             comentario =itemView.findViewById(R.id.comentario);
             fecha_hora =itemView.findViewById(R.id.fecha_hora);
             id =  itemView.findViewById(R.id.ID);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    recyclerViewClickInterface.onItemClick(getAdapterPosition());
+
+                }
+            });
+
 
         }
         void bindData(final Reporte reporte){
@@ -65,6 +76,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             String idString = String.valueOf(reporte.getId());
             id.setText(idString);
         }
+
     }
 
 

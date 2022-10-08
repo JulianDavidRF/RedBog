@@ -24,12 +24,13 @@ import com.example.redbog.PrincipalActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class misReportesActivity extends AppCompatActivity {
+public class misReportesActivity extends AppCompatActivity implements RecyclerViewClickInterface{
 
     StackRef<Reporte> misReportesStack;
     List<Reporte> misReportesLista;
     String celular;
     Dialog dialog;
+    int id;
 
 
 
@@ -73,7 +74,7 @@ public class misReportesActivity extends AppCompatActivity {
     }
 
     public void init() {
-        ListAdapter listAdapter = new ListAdapter(misReportesLista, this);
+        ListAdapter listAdapter = new ListAdapter(misReportesLista, this,this);
         RecyclerView recycler = findViewById(R.id.recycler);
         recycler.setHasFixedSize(true);
         recycler.setLayoutManager(new LinearLayoutManager(this));
@@ -86,9 +87,10 @@ public class misReportesActivity extends AppCompatActivity {
 
 
 
+
     private void openAlert() {
 
-        dialog.setContentView(R.layout.alert_message);
+        dialog.setContentView(R.layout.activity_alert_message);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         ImageView close = dialog.findViewById(R.id.close_icon);
         dialog.show();
@@ -112,18 +114,14 @@ public class misReportesActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemClick(int position) {
+        Toast.makeText(this, "id" + misReportesLista.get(position).getId(), Toast.LENGTH_SHORT).show();
 
+    }
 
+    @Override
+    public void onLongItemClick(int position) {
 
-
-
-
-
-
-
-
-
-
-
-
+    }
 }
