@@ -40,7 +40,7 @@ public class PrincipalActivity extends AppCompatActivity {
         startActivity(crearReporte);
 
     }*/
-    public void irAcrearReporte(View view){
+    public  void irAcrearReporte(View view){
 
         Intent principal = new Intent(this,CrearReporteActivity.class);
         principal.putExtra("celular",celular);

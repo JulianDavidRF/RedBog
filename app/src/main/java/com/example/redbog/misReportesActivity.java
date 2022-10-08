@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -12,11 +13,13 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.redbog.clases.ListAdapter;
 import com.example.redbog.clases.Reporte;
 import com.example.redbog.stack.StackRef;
+import com.example.redbog.PrincipalActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +63,7 @@ public class misReportesActivity extends AppCompatActivity {
         }
         return misReportesStack;
     }
+
     public void stackaLista(StackRef<Reporte> stack){
         misReportesLista = new ArrayList<>();
         while(!stack.isEmpty()){
@@ -80,18 +84,37 @@ public class misReportesActivity extends AppCompatActivity {
         openAlert();
     }
 
+
+
     private void openAlert() {
+
         dialog.setContentView(R.layout.alert_message);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         ImageView close = dialog.findViewById(R.id.close_icon);
         dialog.show();
+        TextView id = findViewById(R.id.ID);
+        Toast.makeText(this,"id : " + id.getText().toString(),Toast.LENGTH_SHORT).show();
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
             }
+
         });
+
+
     }
+
+    public void editarReporte(View view){
+        Intent principal = new Intent(this,EditarReporte.class);
+        principal.putExtra("celular",celular);
+        startActivity(principal);
+    }
+
+
+
+
+
 
 
 
