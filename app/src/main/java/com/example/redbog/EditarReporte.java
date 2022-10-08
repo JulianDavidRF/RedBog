@@ -115,7 +115,7 @@ public class EditarReporte extends AppCompatActivity {
 
         long id = BaseDeDatos.insert("reporte", null, c_reporte);
         BaseDeDatos.close();
-        Toast.makeText(this, "el id es: " + id, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "el id es: " + id, Toast.LENGTH_SHORT).show();
 
 
 

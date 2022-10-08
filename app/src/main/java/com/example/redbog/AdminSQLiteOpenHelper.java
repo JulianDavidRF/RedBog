@@ -1,6 +1,7 @@
 package com.example.redbog;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -16,6 +17,8 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         BaseDeDatos.execSQL("create table usuario(celular int primary key,nombre text, correo text, contraseña text)");
         BaseDeDatos.execSQL("create table reporte(id integer primary key autoincrement, celular int ,tipo_reporte text, localidad text,comentario text, fecha text,hora text,nombre text)");
     }
+
+
 
     /*
     Nombre;

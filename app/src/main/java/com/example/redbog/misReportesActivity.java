@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +25,17 @@ import com.example.redbog.PrincipalActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputEditText;
+
 public class misReportesActivity extends AppCompatActivity implements RecyclerViewClickInterface{
 
     StackRef<Reporte> misReportesStack;
@@ -31,6 +43,7 @@ public class misReportesActivity extends AppCompatActivity implements RecyclerVi
     String celular;
     Dialog dialog;
     int id;
+
 
 
 
@@ -57,7 +70,7 @@ public class misReportesActivity extends AppCompatActivity implements RecyclerVi
 
         Cursor fila = BaseDeDatos.rawQuery("select * from reporte where celular ="+celular,null);
         while(fila.moveToNext()){
-            Toast.makeText(this,"texto" +fila.getString(4),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this,"texto" +fila.getString(4),Toast.LENGTH_SHORT).show();
             //String nombre, String reporte, String fecha, String hora, String localidad, String tipologia
             reporte = new Reporte(fila.getString(7), fila.getString(4),fila.getString(5),fila.getString(6),fila.getString(3),fila.getString(2),fila.getInt(0));
             misReportesStack.push(reporte);
@@ -107,21 +120,101 @@ public class misReportesActivity extends AppCompatActivity implements RecyclerVi
 
     }
 
-    public void editarReporte(View view){
-        Intent principal = new Intent(this,EditarReporte.class);
-        principal.putExtra("celular",celular);
-        startActivity(principal);
-    }
+
+
+
 
 
     @Override
     public void onItemClick(int position) {
         Toast.makeText(this, "id" + misReportesLista.get(position).getId(), Toast.LENGTH_SHORT).show();
+        this.id = position;
+
 
     }
 
+    public void editarReporte(View view){
+        int position = this.id;
+        position = misReportesLista.get(position).getId();
+
+
+        Toast.makeText(this, "id de editar : " + position, Toast.LENGTH_SHORT).show();
+
+
+
+
+        Intent principal = new Intent(this,EditarReporte.class);
+        principal.putExtra("celular",celular);
+        //principal.putExtra("reporte",misReportesLista.get(position).getReporte());
+        //principal.putExtra("localidad",misReportesLista.get(position).getLocalidad());
+        //principal.putExtra("tipologia",misReportesLista.get(position).getTipologia());
+        startActivity(principal);
+
+    }
+
+
+
+
+
+
+
+
+
     @Override
     public void onLongItemClick(int position) {
+
+    }
+
+    public boolean delete(int elid ){
+        boolean correct = false;
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,7);
+        SQLiteDatabase BaseDeDatos = admin.getReadableDatabase();
+
+        try{
+            BaseDeDatos.execSQL("delete from reporte where id = " + elid );
+            correct = true;
+        }catch(Exception ex){
+            ex.toString();
+            correct = false;
+        }finally{
+            BaseDeDatos.close();
+        }
+
+        return correct;
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+    public void Borrar(View view) {
+        int position = this.id;
+
+        //Toast.makeText(this, "SI ENTROOO" + misReportesLista.get(position).getId(), Toast.LENGTH_SHORT).show();
+        position = misReportesLista.get(position).getId();
+        Toast.makeText(this, "el id : " + position, Toast.LENGTH_SHORT).show();
+        boolean funcionepls = delete(position);
+        if(funcionepls ){
+            Toast.makeText(this, "El reporte ha sido elminado somos unos tesoooos", Toast.LENGTH_SHORT).show();
+            Intent principal = new Intent(this, misReportesActivity.class);
+            principal.putExtra("celular",celular);
+            startActivity(principal);
+        }else{
+            Toast.makeText(this, "si sale me mato ", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+
 
     }
 }
