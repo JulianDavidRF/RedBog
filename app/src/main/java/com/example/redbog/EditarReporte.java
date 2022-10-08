@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -38,6 +39,10 @@ public class EditarReporte extends AppCompatActivity {
     String currentTime;
     Calendar calendar;
     EditText mensajeInput;
+    String id;
+
+    EditText reporteTxt;
+    TextInputEditText eltext;
 
 
 
@@ -52,10 +57,16 @@ public class EditarReporte extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+       // reporteTxt = findViewById(R.id.mensaje_reporte);
+        eltext = findViewById(R.id.texto);
         celular =  getIntent().getStringExtra("celular");
         nombre =  getIntent().getStringExtra("nombre");
+        id = getIntent().getStringExtra("id");
+        tomarDato(Integer.valueOf(id));
 
-        Toast.makeText(this, celular, Toast.LENGTH_SHORT).show();
+
+        //Toast.makeText(this, celular, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"ESTE ES EL TOAST ->" +id, Toast.LENGTH_LONG).show();
         setContentView(R.layout.activity_editar_reporte);
         spinnerLocalidad = findViewById(R.id.spinner2);
         spinnerTipologia = findViewById(R.id.spinner3);
@@ -118,6 +129,29 @@ public class EditarReporte extends AppCompatActivity {
         //Toast.makeText(this, "el id es: " + id, Toast.LENGTH_SHORT).show();
 
 
+
+
+    }
+
+
+    public void tomarDato (int id ){
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 7);
+        SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
+
+        Cursor fila = BaseDeDatos.rawQuery
+                ("select * from reporte where id ="+id,null);
+
+        if(fila.moveToFirst()){
+            String rep = fila.getString(4);
+
+
+           Toast.makeText(this,"ESTE ES EL DE SETTEXT :"+fila.getString(4),Toast.LENGTH_LONG).show();
+
+
+
+
+        }
 
 
     }

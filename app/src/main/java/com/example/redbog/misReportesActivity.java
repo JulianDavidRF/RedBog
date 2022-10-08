@@ -128,6 +128,7 @@ public class misReportesActivity extends AppCompatActivity implements RecyclerVi
     @Override
     public void onItemClick(int position) {
         Toast.makeText(this, "id" + misReportesLista.get(position).getId(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "el reporte : " + misReportesLista.get(position).getReporte(), Toast.LENGTH_SHORT).show();
         this.id = position;
 
 
@@ -136,16 +137,20 @@ public class misReportesActivity extends AppCompatActivity implements RecyclerVi
     public void editarReporte(View view){
         int position = this.id;
         position = misReportesLista.get(position).getId();
+        String sPosition  = String.valueOf(position);
 
 
         Toast.makeText(this, "id de editar : " + position, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "el reporte : " + misReportesLista.get(position).getReporte(), Toast.LENGTH_SHORT).show();
 
 
-
+        //String reporte = misReportesLista.get(position).getReporte();
 
         Intent principal = new Intent(this,EditarReporte.class);
         principal.putExtra("celular",celular);
-        //principal.putExtra("reporte",misReportesLista.get(position).getReporte());
+        principal.putExtra("id", sPosition);
+
+        //principal.putExtra("reporte",reporte);
         //principal.putExtra("localidad",misReportesLista.get(position).getLocalidad());
         //principal.putExtra("tipologia",misReportesLista.get(position).getTipologia());
         startActivity(principal);
