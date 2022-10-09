@@ -119,9 +119,25 @@ public class misReportesActivity extends AppCompatActivity implements RecyclerVi
 
 
     public void onItemClickEditar(int position) {
-        Toast.makeText(this, "id editar" + misReportesLista.get(position).getId(), Toast.LENGTH_SHORT).show();
+
         //Toast.makeText(this, "el reporte : " + misReportesLista.get(position).getReporte(), Toast.LENGTH_SHORT).show();
         this.id = misReportesLista.get(position).getId();
+        String reporte = misReportesLista.get(position).getReporte();
+        String fecha = misReportesLista.get(position).getFecha();
+        String hora = misReportesLista.get(position).getHora();
+        String nombre = misReportesLista.get(position).getNombre();
+
+
+        Intent editar = new Intent(this, EditarReporte.class);
+
+        editar.putExtra("id",String.valueOf(id));
+        editar.putExtra("reporte", reporte);
+        editar.putExtra("fecha", fecha);
+        editar.putExtra("hora",hora);
+        editar.putExtra("celular",celular);
+        editar.putExtra("nombre",nombre);
+        startActivity(editar);
+
 
 
     }

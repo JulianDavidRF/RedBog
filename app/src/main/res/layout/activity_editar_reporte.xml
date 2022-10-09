@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".CrearReporteActivity">
+    tools:context=".EditarReporte">
 
     <Button
         android:id="@+id/button"
@@ -14,7 +14,7 @@
         android:layout_marginEnd="1dp"
         android:background="@color/purple_500"
         android:text="PUBLICAR REPORTE"
-        android:onClick="reporte"
+        android:onClick="editar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
