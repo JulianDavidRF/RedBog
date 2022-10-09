@@ -61,8 +61,8 @@ public class EditarReporte extends AppCompatActivity {
         eltext = findViewById(R.id.texto);
         celular =  getIntent().getStringExtra("celular");
         nombre =  getIntent().getStringExtra("nombre");
-        id = getIntent().getStringExtra("id");
-        tomarDato(Integer.valueOf(id));
+        //id = getIntent().getStringExtra("id");
+        //tomarDato(Integer.valueOf(id));
 
 
         //Toast.makeText(this, celular, Toast.LENGTH_SHORT).show();

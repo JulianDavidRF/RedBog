@@ -1,6 +1,8 @@
 package com.example.redbog;
 
 public interface RecyclerViewClickInterface {
-    void onItemClick(int position);
+    void onItemClickEliminar(int position);
+    void onItemClickEditar(int position);
+
     void onLongItemClick(int position);
 }

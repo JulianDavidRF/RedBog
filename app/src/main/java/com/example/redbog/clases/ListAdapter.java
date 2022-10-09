@@ -2,6 +2,7 @@ package com.example.redbog.clases;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
@@ -11,15 +12,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.redbog.EditarReporte;
 import com.example.redbog.R;
 import com.example.redbog.RecyclerViewClickInterface;
 import com.example.redbog.misReportesActivity;
 
 import java.util.List;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
+public class ListAdapter  extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<Reporte> reporte ;
     private LayoutInflater mInflater;
     private Context contexto;
@@ -28,12 +31,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     Dialog dialog;
 
 
+
     public ListAdapter(List<Reporte> reporte, Context contexto,RecyclerViewClickInterface recyclerViewClickInterface){
         this.mInflater = LayoutInflater.from(contexto);
         this.contexto = contexto;
         this.reporte = reporte;
         this.recyclerViewClickInterface = recyclerViewClickInterface;
         this.dialog = new Dialog(contexto);
+
 
     }
     private void openAlert() {
@@ -75,8 +80,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         reporte = reportes;
     }
 
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView name, tipologia,comentario,fecha_hora,id;
+        TextView name, tipologia,comentario,fecha_hora,id,editar_reporte;
         ImageView btn;
         ViewHolder(View itemView){
             super(itemView);
@@ -86,24 +93,33 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             fecha_hora =itemView.findViewById(R.id.fecha_hora);
             id =  itemView.findViewById(R.id.ID);
             btn =  itemView.findViewById(R.id.delete_icon);
-            itemView.setOnClickListener(new View.OnClickListener() {
+            editar_reporte = itemView.findViewById(R.id.editar_reporte);
+            /*itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     recyclerViewClickInterface.onItemClick(getAdapterPosition());
 
                 }
-            });
+            });*/
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    recyclerViewClickInterface.onItemClick(getAdapterPosition());
+                    recyclerViewClickInterface.onItemClickEliminar(getAdapterPosition());
                     openAlert();
-
-
-
 
                 }
             });
+            editar_reporte.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    recyclerViewClickInterface.onItemClickEditar(getAdapterPosition());
+
+                }
+            });
+
+
+
+
 
 
         }
@@ -114,9 +130,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             fecha_hora.setText(reporte.getFecha());
             String idString = String.valueOf(reporte.getId());
             id.setText(idString);
+
         }
 
+
     }
+
 
 
 
