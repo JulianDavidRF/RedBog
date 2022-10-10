@@ -12,13 +12,13 @@ import com.example.redbog.queue.Node;
  *
  * @author ADMIN
  */
-public class Lista <T>{
+public class List<T>{
 
     private Node back = new Node();
     private Node front = new Node();
     private int c = -1;
 
-    public Lista() {
+    public List() {
         this.back = null;
         this.front = null;
     }

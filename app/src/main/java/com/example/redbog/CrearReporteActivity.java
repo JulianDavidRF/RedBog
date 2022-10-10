@@ -2,10 +2,8 @@ package com.example.redbog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
-import android.content.Intent;
-import android.database.Cursor;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -15,11 +13,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
+import com.example.redbog.ListaE.List;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class CrearReporteActivity extends AppCompatActivity{
@@ -35,18 +33,38 @@ public class CrearReporteActivity extends AppCompatActivity{
     Calendar calendar;
     EditText mensajeInput;
 
-
-
-
-
-
-
-
-
+    List<String> localidadLista;
+    List<String> tipologiaLista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        localidadLista = new List<>();
+        tipologiaLista = new List<>();
+        localidadLista.add("Localidad de los hechos");
+        localidadLista.add("Bosa");
+        localidadLista.add("Kennedy");
+        localidadLista.add("chapinero");
+        localidadLista.add("Suba");
+        localidadLista.add("Sante Fe");
+
+
+        tipologiaLista.add("Tipo de acto ilicito");
+        tipologiaLista.add("Robo");
+        tipologiaLista.add("Estafa");
+        tipologiaLista.add("Agresión");
+        tipologiaLista.add("Asalto");
+        tipologiaLista.add("Riñas");
+
+        ArrayList<String> localidadArray= new ArrayList<>();
+        for(int i =0; i<= localidadLista.getC();i++){
+            localidadArray.add(localidadLista.index(i));
+        }
+
+        ArrayList<String> tipologiaArray= new ArrayList<>();
+        for(int i =0; i<= tipologiaLista.getC();i++){
+            tipologiaArray.add(tipologiaLista.index(i));
+        }
 
         celular =  getIntent().getStringExtra("celular");
         nombre =  getIntent().getStringExtra("nombre");
@@ -60,8 +78,8 @@ public class CrearReporteActivity extends AppCompatActivity{
         simpleDateFormat = new SimpleDateFormat("HH:mm");
         currentDate = DateFormat.getDateInstance().format(calendar.getTime());
         currentTime = simpleDateFormat.format(calendar.getTime());
-        ArrayAdapter<CharSequence> adapter =  ArrayAdapter.createFromResource(this,R.array.localidades, android.R.layout.simple_spinner_item);
-        ArrayAdapter<CharSequence> adapter3 =  ArrayAdapter.createFromResource(this,R.array.tipologia, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter =  new ArrayAdapter(this, android.R.layout.simple_spinner_item, tipologiaArray);
+        ArrayAdapter<CharSequence> adapter3 =  new ArrayAdapter(this, android.R.layout.simple_spinner_item, localidadArray);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerLocalidad.setAdapter(adapter);
         spinnerTipologia.setAdapter(adapter3);
