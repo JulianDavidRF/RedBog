@@ -232,4 +232,17 @@ public class misReportesActivity extends AppCompatActivity implements RecyclerVi
         startActivity(principal);
 
     }
+
+    public void volver(View view){
+        Intent principal = new Intent(this,PrincipalActivity.class);
+        principal.putExtra("celular",celular);
+        startActivity(principal);
+
+    }
+
+
+
+
+
+
 }
