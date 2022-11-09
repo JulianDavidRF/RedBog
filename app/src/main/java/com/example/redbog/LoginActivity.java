@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if(estado){
-            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,7);
+            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,9);
             SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
             Cursor fila = BaseDeDatos.rawQuery

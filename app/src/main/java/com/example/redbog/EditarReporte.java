@@ -160,18 +160,9 @@ public class EditarReporte extends AppCompatActivity {
 
 
         Toast.makeText(this, mensajeInput.getText().toString(), Toast.LENGTH_SHORT).show();
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 7);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 9);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
-        /*ContentValues c_reporte = new ContentValues();
-        c_reporte.put("celular", this.celular);
-        c_reporte.put("tipo_reporte", this.tipologia);
-        c_reporte.put("localidad", this.localidad);
-        c_reporte.put("comentario", mensajeInput.getText().toString());
-        c_reporte.put("fecha", this.fecha);
-        c_reporte.put("hora", this.hora);
-        c_reporte.put("nombre", this.nombre);
-        long id_r = BaseDeDatos.insert("reporte", null, c_reporte);*/
 
         BaseDeDatos.execSQL("update  reporte  set celular = '"+this.celular+"', tipo_reporte = '"+this.tipologia+"',  " +
                 "localidad = '"+this.localidad+"', comentario =  '"+mensajeInput.getText().toString()+"'," +
@@ -186,7 +177,7 @@ public class EditarReporte extends AppCompatActivity {
     public boolean delete(int elid ){
         boolean correct = false;
 
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,7);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,9);
         SQLiteDatabase BaseDeDatos = admin.getReadableDatabase();
 
         try{

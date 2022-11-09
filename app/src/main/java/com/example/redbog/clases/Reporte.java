@@ -8,10 +8,11 @@ public class Reporte {
     private String localidad;
     private String tipologia;
     private int id;
+    private int dateId;
 
 
 
-    public Reporte(String nombre, String reporte, String fecha, String hora, String localidad, String tipologia,int id) {
+    public Reporte(String nombre, String reporte, String fecha, String hora, String localidad, String tipologia,int id, int dateId) {
         this.nombre = nombre;
         this.reporte = reporte;
         this.fecha = fecha;
@@ -19,6 +20,15 @@ public class Reporte {
         this.localidad = localidad;
         this.tipologia = tipologia;
         this.id =id;
+        this.dateId = dateId;
+    }
+
+    public int getDateId() {
+        return dateId;
+    }
+
+    public void setDateId(int dateId) {
+        this.dateId = dateId;
     }
 
     public String getNombre() {

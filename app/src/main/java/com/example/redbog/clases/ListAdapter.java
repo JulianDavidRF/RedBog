@@ -94,6 +94,8 @@ public class ListAdapter  extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             id =  itemView.findViewById(R.id.ID);
             btn =  itemView.findViewById(R.id.delete_icon);
             editar_reporte = itemView.findViewById(R.id.editar_reporte);
+
+
             /*itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -124,12 +126,14 @@ public class ListAdapter  extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
         }
         void bindData(final Reporte reporte){
-            name.setText(reporte.getNombre());
+            name.setText(reporte.getNombre() + "h");
             tipologia.setText(reporte.getTipologia());
             comentario.setText(reporte.getReporte());
             fecha_hora.setText(reporte.getFecha());
             String idString = String.valueOf(reporte.getId());
             id.setText(idString);
+
+
 
         }
 

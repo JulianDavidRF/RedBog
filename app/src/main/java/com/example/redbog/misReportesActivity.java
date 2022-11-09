@@ -66,14 +66,14 @@ public class misReportesActivity extends AppCompatActivity implements RecyclerVi
     public StackRef<Reporte> llenarStack(){
         misReportesStack = new StackRef<>();
         Reporte reporte;
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,7);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,9);
         SQLiteDatabase BaseDeDatos = admin.getReadableDatabase();
 
         Cursor fila = BaseDeDatos.rawQuery("select * from reporte where celular ="+celular,null);
         while(fila.moveToNext()){
             //Toast.makeText(this,"texto" +fila.getString(4),Toast.LENGTH_SHORT).show();
             //String nombre, String reporte, String fecha, String hora, String localidad, String tipologia
-            reporte = new Reporte(fila.getString(7), fila.getString(4),fila.getString(5),fila.getString(6),fila.getString(3),fila.getString(2),fila.getInt(0));
+            reporte = new Reporte(fila.getString(7), fila.getString(4),fila.getString(5),fila.getString(6),fila.getString(3),fila.getString(2),fila.getInt(0),fila.getInt(8));
             misReportesStack.push(reporte);
         }
         return misReportesStack;
@@ -164,15 +164,11 @@ public class misReportesActivity extends AppCompatActivity implements RecyclerVi
 
 
 
-    @Override
-    public void onLongItemClick(int position) {
-
-    }
 
     public boolean delete(int elid ){
         boolean correct = false;
 
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,7);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,9);
         SQLiteDatabase BaseDeDatos = admin.getReadableDatabase();
 
         try{

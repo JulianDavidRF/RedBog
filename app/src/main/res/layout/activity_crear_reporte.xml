@@ -31,15 +31,7 @@
         app:layout_constraintBottom_toTopOf="@+id/mensaje"
         app:layout_constraintTop_toBottomOf="@+id/spinner3"
         app:layout_constraintVertical_bias="0.432"
-        tools:layout_editor_absoluteX="16dp">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/texto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Describe los hechos sucedidos" />
-    </com.google.android.material.textfield.TextInputLayout>
+        tools:layout_editor_absoluteX="16dp"/>
 
     <Spinner
         android:id="@+id/spinner2"
@@ -83,16 +75,31 @@
 
     <EditText
         android:id="@+id/mensaje_reporte"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="318dp"
+        android:layout_height="123dp"
+        android:background="@color/light_gray"
         android:ems="15"
-        android:textColor="@color/black"
-        android:lines="4"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:lines="4"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintVertical_bias="0.389" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Describe los hechos sucedidos"
+        app:layout_constraintBottom_toTopOf="@+id/mensaje_reporte"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.216"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner3"
+        app:layout_constraintVertical_bias="0.876" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

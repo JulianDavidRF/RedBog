@@ -19,6 +19,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Locale;
+import java.util.Date;
 
 public class CrearReporteActivity extends AppCompatActivity{
     Spinner spinnerLocalidad;
@@ -28,10 +30,16 @@ public class CrearReporteActivity extends AppCompatActivity{
     String celular;
     String nombre;
     SimpleDateFormat simpleDateFormat;
-    String currentDate;
+   // String currentDate;
     String currentTime;
     Calendar calendar;
     EditText mensajeInput;
+    String[] dateIdArray;
+    String dateId;
+    String[] anhoArray;
+    String anhoId;
+    String diaId;
+    long milisegundosId;
 
     List<String> localidadLista;
     List<String> tipologiaLista;
@@ -76,11 +84,9 @@ public class CrearReporteActivity extends AppCompatActivity{
         mensajeInput =   findViewById(R.id.mensaje_reporte);
         calendar = Calendar.getInstance();
         simpleDateFormat = new SimpleDateFormat("HH:mm");
-        currentDate = DateFormat.getDateInstance().format(calendar.getTime());
         currentTime = simpleDateFormat.format(calendar.getTime());
         ArrayAdapter<CharSequence> adapter =  new ArrayAdapter(this, android.R.layout.simple_spinner_item, tipologiaArray);
         ArrayAdapter<CharSequence> adapter3 =  new ArrayAdapter(this, android.R.layout.simple_spinner_item, localidadArray);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerLocalidad.setAdapter(adapter);
         spinnerTipologia.setAdapter(adapter3);
         spinnerLocalidad.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -113,27 +119,44 @@ public class CrearReporteActivity extends AppCompatActivity{
 
     }
 
+    public String getTodaysDate(){
+        return new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
+    }
+
     public void reporte(View view) {
 
         Toast.makeText(this, mensajeInput.getText().toString(), Toast.LENGTH_SHORT).show();
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 7);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 9);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
         ContentValues c_reporte = new ContentValues();
+
         c_reporte.put("celular", this.celular);
         c_reporte.put("tipo_reporte", this.tipologia);
         c_reporte.put("localidad", this.localidad);
         c_reporte.put("comentario", mensajeInput.getText().toString());
-        c_reporte.put("fecha", this.currentDate);
+        c_reporte.put("fecha", getTodaysDate());
         c_reporte.put("hora", this.currentTime);
         c_reporte.put("nombre", this.nombre);
+        dateIdArray = getTodaysDate().split("/");
+        dateId = "";
+        for(int i =0; i< dateIdArray.length;i++){
+            dateId+= dateIdArray[i];
+        }
+        c_reporte.put("dateId", dateId);
+        //anhoArray = this.currentDate.split(" ");
+        //anhoId = anhoArray[2];
+        //diaId= anhoArray[0];
+        //milisegundosId= calendar.getTimeInMillis();
 
         long id = BaseDeDatos.insert("reporte", null, c_reporte);
         BaseDeDatos.close();
-        Toast.makeText(this, "el id es: " + id, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "el id es: " + id, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "current date" + dateId, Toast.LENGTH_SHORT).show();
 
 
 
-
+//20221029
+  //      año + dia + milisegundos
     }
 
 

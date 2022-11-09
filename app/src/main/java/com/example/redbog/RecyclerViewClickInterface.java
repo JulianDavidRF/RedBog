@@ -4,5 +4,4 @@ public interface RecyclerViewClickInterface {
     void onItemClickEliminar(int position);
     void onItemClickEditar(int position);
 
-    void onLongItemClick(int position);
 }
