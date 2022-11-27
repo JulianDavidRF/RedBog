@@ -4,16 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.redbog.ListaE.List;
+import com.google.android.gms.maps.model.Marker;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -50,12 +53,25 @@ public class CrearReporteActivity extends AppCompatActivity{
         localidadLista = new List<>();
         tipologiaLista = new List<>();
         localidadLista.add("Localidad de los hechos");
-        localidadLista.add("Bosa");
+        localidadLista.add("Antonio Nariño");
+        localidadLista.add("Barrios Unidos");
+        localidadLista.add("Chapinero");
+        localidadLista.add("Ciudad Bolivar");
+        localidadLista.add("Fontibon");
+        localidadLista.add("Engativa");
         localidadLista.add("Kennedy");
-        localidadLista.add("chapinero");
+        localidadLista.add("La Candelaria");
+        localidadLista.add("Los Martires");
+        localidadLista.add("Puente Aranda");
+        localidadLista.add("Rafael Uribe");
+        localidadLista.add("San Cristobal");
+        localidadLista.add("Santa Fe");
         localidadLista.add("Suba");
-        localidadLista.add("Sante Fe");
-
+        localidadLista.add("Sumapaz");
+        localidadLista.add("Teusaquillo");
+        localidadLista.add("Tunjuelito");
+        localidadLista.add("Usaquen");
+        localidadLista.add("Usme");
 
         tipologiaLista.add("Tipo de acto ilicito");
         tipologiaLista.add("Robo");
@@ -119,13 +135,19 @@ public class CrearReporteActivity extends AppCompatActivity{
 
     }
 
+    public void irPrincipal(View view){
+        Intent registro = new Intent(this,PrincipalActivity.class);
+        registro.putExtra("celular", celular);
+        startActivity(registro);
+    }
+
     public String getTodaysDate(){
         return new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
     }
 
     public void reporte(View view) {
 
-        Toast.makeText(this, mensajeInput.getText().toString(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, mensajeInput.getText().toString(), Toast.LENGTH_SHORT).show();
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 9);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
         ContentValues c_reporte = new ContentValues();
@@ -151,7 +173,7 @@ public class CrearReporteActivity extends AppCompatActivity{
         long id = BaseDeDatos.insert("reporte", null, c_reporte);
         BaseDeDatos.close();
         //Toast.makeText(this, "el id es: " + id, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "current date" + dateId, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Creado con exito", Toast.LENGTH_SHORT).show();
 
 
 

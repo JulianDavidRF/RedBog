@@ -8,43 +8,77 @@
     tools:context=".CrearReporteActivity">
 
     <Button
+        android:id="@+id/button4"
+        android:layout_width="52dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="?attr/actionModeCloseDrawable"
+        android:backgroundTint="@color/purple_500"
+        android:onClick="irPrincipal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo_principal2"
+        android:layout_width="62dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon" />
+
+    <TextView
+        android:id="@+id/red_bog2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:text="RedBog"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/logo_principal2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="161dp"
+        android:text="CREAR REPORTE"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/button"
         android:layout_width="300dp"
         android:layout_height="60dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="1dp"
         android:background="@color/purple_500"
-        android:text="PUBLICAR REPORTE"
         android:onClick="reporte"
+        android:text="PUBLICAR REPORTE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mensaje"
-        app:layout_constraintVertical_bias="0.423" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:hint="Describe los hechos sucedidos"
-        android:textColorHint="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/mensaje"
-        app:layout_constraintTop_toBottomOf="@+id/spinner3"
-        app:layout_constraintVertical_bias="0.432"
-        tools:layout_editor_absoluteX="16dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/mensaje_reporte" />
 
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
         android:background="@color/purple_500"
         android:padding="20dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.131"
-        tools:layout_editor_absoluteX="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title2"
         tools:visibility="visible" />
 
     <Spinner
@@ -52,54 +86,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
         android:background="@color/purple_500"
         android:padding="20dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner2"
-        app:layout_constraintVertical_bias="0.16"
         tools:layout_editor_absoluteX="20dp"
         tools:visibility="visible" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/mensaje"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="message"
-
-        android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner3"
-        app:layout_constraintVertical_bias="0.384"
-        tools:layout_editor_absoluteX="39dp"/>
-
     <EditText
         android:id="@+id/mensaje_reporte"
-        android:layout_width="318dp"
+        android:layout_width="match_parent"
         android:layout_height="123dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@color/light_gray"
         android:ems="15"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:lines="4"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.389" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Describe los hechos sucedidos"
-        app:layout_constraintBottom_toTopOf="@+id/mensaje_reporte"
+        android:layout_marginTop="20dp"
+        android:text="Describe los hechos sucedidos :"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.216"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner3"
-        app:layout_constraintVertical_bias="0.876" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
