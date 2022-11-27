@@ -30,6 +30,13 @@
             android:value="AIzaSyBB4lXQxWoNcd-QX6YegRPrTb0GABqXDGk" />
 
         <activity
+            android:name=".reportesLocalidad"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".EditarReporte"
             android:exported="false">
             <meta-data

@@ -67,11 +67,25 @@ public class EditarReporte extends AppCompatActivity {
         localidadLista = new List<>();
         tipologiaLista = new List<>();
         localidadLista.add("Localidad de los hechos");
-        localidadLista.add("Bosa");
+        localidadLista.add("Antonio Narinio");
+        localidadLista.add("Barrios Unidos");
+        localidadLista.add("Chapinero");
+        localidadLista.add("Ciudad Bolivar");
+        localidadLista.add("Fontibon");
+        localidadLista.add("Engativa");
         localidadLista.add("Kennedy");
-        localidadLista.add("chapinero");
+        localidadLista.add("La Candelaria");
+        localidadLista.add("Los Martires");
+        localidadLista.add("Puente Aranda");
+        localidadLista.add("Rafael Uribe");
+        localidadLista.add("San Cristobal");
+        localidadLista.add("Santa Fe");
         localidadLista.add("Suba");
-        localidadLista.add("Sante Fe");
+        localidadLista.add("Sumapaz");
+        localidadLista.add("Teusaquillo");
+        localidadLista.add("Tunjuelito");
+        localidadLista.add("Usaquen");
+        localidadLista.add("Usme");
 
 
         tipologiaLista.add("Tipo de acto ilicito");

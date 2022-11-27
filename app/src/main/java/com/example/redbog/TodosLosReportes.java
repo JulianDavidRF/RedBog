@@ -2,6 +2,7 @@ package com.example.redbog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -21,20 +22,16 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.redbog.AVL.AVLTree;
-import com.example.redbog.ListaE.ListaSimple;
 import com.example.redbog.clases.ListAdapter2;
 import com.example.redbog.clases.Reporte;
 import com.example.redbog.stack.StackRef;
 import com.example.redbog.queue.Cola;
-import com.example.redbog.ListaE.ListaSimple;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 
 public class TodosLosReportes extends AppCompatActivity {
@@ -174,6 +171,16 @@ public class TodosLosReportes extends AppCompatActivity {
                 }
                 if(respuestaFiltro == "Todos los reportes"){
                     init(todosReportesLista);
+                }if(respuestaFiltro == "Localidad"){
+                    Toast("ENTRO A LAS LOCALIDADES");
+
+                    volver(this);
+
+
+
+
+
+
                 }
 
 
@@ -304,6 +311,12 @@ public class TodosLosReportes extends AppCompatActivity {
         });
 
 
+    }
+
+    public void volver(AdapterView.OnItemSelectedListener view){
+        Intent irLogin  =  new Intent(this,reportesLocalidad.class);
+        //irLogin.putReportesArrayListExtra("todosReportesLista",todosReportesLista);
+        startActivity(irLogin);
     }
 
 

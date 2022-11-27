@@ -16,7 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.redbog.ListaE.List;
-import com.google.android.gms.maps.model.Marker;
+//import com.google.android.gms.maps.model.Marker;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -53,7 +53,7 @@ public class CrearReporteActivity extends AppCompatActivity{
         localidadLista = new List<>();
         tipologiaLista = new List<>();
         localidadLista.add("Localidad de los hechos");
-        localidadLista.add("Antonio Nariño");
+        localidadLista.add("Antonio Narinio");
         localidadLista.add("Barrios Unidos");
         localidadLista.add("Chapinero");
         localidadLista.add("Ciudad Bolivar");
