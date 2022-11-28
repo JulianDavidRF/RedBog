@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".reportesLocalidad">
+    tools:context=".filtro_tipologia">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
@@ -44,7 +44,7 @@
                 android:layout_marginTop="13dp"
                 android:layout_weight="1"
                 android:text="Redbog"
-                android:textColor="#FDFDFD"
+                android:textColor="#FFFFFF"
                 android:textSize="20dp" />
             <ImageView
                 android:id="@+id/logo"
@@ -55,7 +55,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/icon" />
-
 
         </LinearLayout>
 
@@ -73,20 +72,19 @@
 
     </androidx.cardview.widget.CardView>
 
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reportes por Localidad "
+        android:text="Reportes por acto ilicito "
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/recycler"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.144" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        app:layout_constraintVertical_bias="0.04" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
@@ -110,7 +108,7 @@
         android:textColor="@color/purple_700"
         app:layout_constraintBottom_toTopOf="@+id/recycler"
         app:layout_constraintEnd_toStartOf="@+id/spinner"
-        app:layout_constraintHorizontal_bias="0.79"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.509" />
@@ -119,13 +117,13 @@
         android:id="@+id/spinner"
         android:layout_width="190dp"
         android:layout_height="39dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginEnd="40dp"
         android:background="@drawable/buttonbackground"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/recycler"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.514" />
+        app:layout_constraintVertical_bias="0.571" />
 
     <TextView
         android:id="@+id/textView"
@@ -134,7 +132,7 @@
         android:text="Aún no has aplicado un filtro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/recycler"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="@+id/recycler"
         app:layout_constraintTop_toTopOf="@+id/recycler"
         app:layout_constraintVertical_bias="0.172" />
@@ -150,6 +148,5 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/vision" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

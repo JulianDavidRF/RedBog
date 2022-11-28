@@ -182,6 +182,17 @@ public class TodosLosReportes extends AppCompatActivity {
 
 
                 }
+                if(respuestaFiltro == "Tipo acto ilicito"){
+                    Toast("ENTRO A LAS LOCALIDADES");
+
+                    volver2(this);
+
+
+
+
+
+
+                }
 
 
             }
@@ -317,6 +328,16 @@ public class TodosLosReportes extends AppCompatActivity {
         Intent irLogin  =  new Intent(this,reportesLocalidad.class);
         //irLogin.putReportesArrayListExtra("todosReportesLista",todosReportesLista);
         startActivity(irLogin);
+    }
+    public void volver2(AdapterView.OnItemSelectedListener view){
+        Intent irLogin  =  new Intent(this,filtro_tipologia.class);
+        //irLogin.putReportesArrayListExtra("todosReportesLista",todosReportesLista);
+        startActivity(irLogin);
+    }
+    public void irPrincipal(View view){
+        Intent registro = new Intent(this,PrincipalActivity.class);
+        registro.putExtra("celular", celular);
+        startActivity(registro);
     }
 
 

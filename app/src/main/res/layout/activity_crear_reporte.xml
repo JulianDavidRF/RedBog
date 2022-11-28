@@ -4,76 +4,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@color/white"
     tools:context=".CrearReporteActivity">
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="52dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:background="?attr/actionModeCloseDrawable"
-        android:backgroundTint="@color/purple_500"
-        android:onClick="irPrincipal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/logo_principal2"
-        android:layout_width="62dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/red_bog2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:text="RedBog"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/logo_principal2"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:animateLayoutChanges="true"
+            android:background="@color/dark_blue"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonback"
+                android:layout_width="52dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+
+                android:background="?attr/actionModeCloseDrawable"
+                android:backgroundTint="@color/light_purple"
+                android:onClick="irPrincipal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="71dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="180dp"
+                android:layout_marginTop="13dp"
+                android:layout_weight="1"
+                android:text="Redbog"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp" />
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/icon" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="132dp"
+            android:layout_marginEnd="28dp"
+            android:text="RedBog"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/logo_principal2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.cardview.widget.CardView>
+
 
     <TextView
         android:id="@+id/title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="161dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="116dp"
         android:layout_marginEnd="161dp"
-        android:text="CREAR REPORTE"
+        android:text="Crear reporte"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="1dp"
-        android:background="@color/purple_500"
-        android:onClick="reporte"
-        android:text="PUBLICAR REPORTE"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+
+    <TextView
+        android:id="@+id/localidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecciona el tipo de acto ilicito"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.192"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mensaje_reporte" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.952" />
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_width="match_parent"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/purple_500"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/buttonbackground"
         android:padding="20dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,48 +117,80 @@
         app:layout_constraintTop_toBottomOf="@+id/title2"
         tools:visibility="visible" />
 
+    <TextView
+        android:id="@+id/tipologia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecciona la localidad de los hechos"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner2"
+        app:layout_constraintVertical_bias="0.75" />
+
     <Spinner
         android:id="@+id/spinner3"
-        android:layout_width="match_parent"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/purple_500"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/buttonbackground"
         android:padding="20dp"
         android:visibility="visible"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner2"
-        tools:layout_editor_absoluteX="20dp"
         tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Describe los hechos sucedidos"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner3" />
 
     <EditText
         android:id="@+id/mensaje_reporte"
-        android:layout_width="match_parent"
-        android:layout_height="123dp"
+        android:layout_width="330dp"
+        android:layout_height="160dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="20dp"
-        android:background="@color/light_gray"
+        android:background="@drawable/edittext"
         android:ems="15"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:lines="4"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Describe los hechos sucedidos :"
-        android:textColor="@color/black"
-        android:textSize="20sp"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/buttonbackground"
+        android:onClick="reporte"
+        android:text="PUBLICAR REPORTE"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.216"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner3" />
+        app:layout_constraintTop_toBottomOf="@+id/mensaje_reporte"
+        app:layout_constraintVertical_bias="0.138" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

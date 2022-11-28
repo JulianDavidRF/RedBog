@@ -208,12 +208,10 @@ public class EditarReporte extends AppCompatActivity {
 
     }
 
-    public void volver(View view){
-        Intent principal = new Intent(this,PrincipalActivity.class);
-        principal.putExtra("celular",celular);
-        principal.putExtra("nombre",nombre);
-        startActivity(principal);
-
+    public void irPrincipal(View view){
+        Intent registro = new Intent(this,PrincipalActivity.class);
+        registro.putExtra("celular", celular);
+        startActivity(registro);
     }
 
 

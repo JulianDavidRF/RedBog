@@ -6,66 +6,169 @@
     android:layout_height="match_parent"
     tools:context=".PrincipalActivity"
     xmlns:map="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white">
-
-    <TextView
-        android:id="@+id/Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="161dp"
-        android:text="INICIO"
-        android:textColor="@color/black"
-        android:textSize="24sp"
+    android:background="@color/light_gray">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/red_bog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="21dp"
-        android:text="RedBog"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/logo_principal"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
 
-    <ImageView
-        android:id="@+id/logo_principal"
-        android:layout_width="62dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:animateLayoutChanges="true"
+            android:background="@color/dark_blue"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="71dp"
+                android:textSize="21dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:text="Redbog"
+                android:textColor="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="148dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/icon" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="132dp"
+            android:layout_marginEnd="28dp"
+            android:text="RedBog"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/logo_principal2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.cardview.widget.CardView>
+
 
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_width="420dp"
+        android:layout_height="442dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Title"
         map:cameraZoom="11"
         map:uiRotateGestures="true"
         map:uiZoomControls="true"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="70dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginTop="420dp"
+        android:background="@color/black"
+        app:cardBackgroundColor="@color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:animateLayoutChanges="true"
+            android:background="@drawable/datoslocalidadbackground"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="132dp"
+                android:layout_marginTop="12dp"
+                android:text="Datos de busqueda"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/map"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/localidadID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:text="localidad:"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/map"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/totalID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="5dp"
+                android:text="Total:"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/map"
+                tools:ignore="MissingConstraints" />
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <Button
         android:id="@+id/crear_reporte"
         android:layout_width="200dp"
         android:layout_height="49dp"
         android:layout_marginTop="10dp"
-        android:background="@color/purple_700"
+        android:background="@drawable/buttonbackground"
         android:onClick="irAcrearReporte"
         android:padding="10dp"
         android:text="CREAR REPORTE"
@@ -79,7 +182,7 @@
         android:layout_width="200dp"
         android:layout_height="51dp"
         android:layout_marginTop="10dp"
-        android:background="@color/purple_700"
+        android:background="@drawable/buttonbackground"
         android:onClick="irAmisReportes"
         android:padding="10dp"
         android:text="MIS REPORTES"
@@ -92,39 +195,15 @@
         android:id="@+id/button7"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@color/purple_700"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/buttonbackground"
         android:onClick="irAreportes"
         android:padding="10dp"
         android:text="REPORTES GENERALES "
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/totalID" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-    <TextView
-        android:id="@+id/localidadID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        android:text="Localidad:"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/map"
-        tools:ignore="MissingConstraints"/>
-
-    <TextView
-        android:id="@+id/totalID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        android:text="Total actos delictivos:"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/localidadID"
-        tools:ignore="MissingConstraints"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

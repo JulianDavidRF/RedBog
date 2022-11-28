@@ -60,7 +60,7 @@ public class ListAdapter2 extends RecyclerView.Adapter<ListAdapter2.ViewHolder> 
         }
         void bindData(final Reporte reporte){
             name.setText(reporte.getNombre());
-            tipologia.setText(reporte.getTipologia());
+            tipologia.setText(reporte.getLocalidad() + " en " +reporte.getTipologia());
             comentario.setText(reporte.getReporte());
             fecha_hora.setText(reporte.getFecha());
         }

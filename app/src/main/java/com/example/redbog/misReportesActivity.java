@@ -235,6 +235,11 @@ public class misReportesActivity extends AppCompatActivity implements RecyclerVi
         startActivity(principal);
 
     }
+    public void irPrincipal(View view){
+        Intent registro = new Intent(this,PrincipalActivity.class);
+        registro.putExtra("celular", celular);
+        startActivity(registro);
+    }
 
 
 

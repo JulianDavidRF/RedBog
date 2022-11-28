@@ -23,6 +23,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.redbog.AVL.AVLTree;
@@ -53,6 +54,8 @@ public class reportesLocalidad extends AppCompatActivity {
     String celular;
     Dialog dialog;
     Spinner filtroSpinner;
+    TextView tv;
+    ImageView im;
     String respuestaFiltro;
 
 
@@ -210,7 +213,7 @@ public class reportesLocalidad extends AppCompatActivity {
         //Crecion de array para filtros-----------------------------------------------------
         setContentView(R.layout.activity_reportes_localidad);
         ArrayList<String> filtros= new ArrayList<>();
-
+        filtros.add("Localidades");
         filtros.add("Usaquen");
         filtros.add("Suba");
         filtros.add("Barrios Unidos");
@@ -239,6 +242,8 @@ public class reportesLocalidad extends AppCompatActivity {
 
         //El array se asigna a el drop-down adapter--------------------------------------------
         filtroSpinner = findViewById(R.id.spinner);
+        tv = findViewById(R.id.textView);
+        im = findViewById(R.id.imageView);
         ArrayAdapter<CharSequence> adapter =  new ArrayAdapter(this, android.R.layout.simple_spinner_item, filtros);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         filtroSpinner.setAdapter(adapter);
@@ -250,132 +255,254 @@ public class reportesLocalidad extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 respuestaFiltro = adapterView.getItemAtPosition(i).toString();
 
+                if(respuestaFiltro !="Localidades"){
+                    tv.setVisibility(View.GONE);
+                    im.setVisibility(View.GONE);
+                }
+
                 if(respuestaFiltro == "Usaquen"){
-                    init((List)myTabla.leer("Usaquen"));
+
+                    if(!((List)myTabla.leer("Usaquen")).isEmpty()){
+                        init((List)myTabla.leer("Usaquen"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                        tv.setVisibility(View.VISIBLE);
+                    }
 
 
                 }
                 if(respuestaFiltro == "Suba"){
-                    init((List)myTabla.leer("Suba"));
+                    if(!((List)myTabla.leer("Suba")).isEmpty()){
+                        init((List)myTabla.leer("Suba"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                        tv.setVisibility(View.VISIBLE);
+                    }
 
                 }
                 if(respuestaFiltro == "Barrios Unidos"){
-                    init((List)myTabla.leer("Barrios Unidos"));
+
+                    if(!((List)myTabla.leer("Barrios Unidos")).isEmpty()){
+                        init((List)myTabla.leer("Barrios Unidos"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                        tv.setVisibility(View.VISIBLE);
+
+                    }
+
 
                 }
                 if(respuestaFiltro == "Chapinero"){
-                    init((List)myTabla.leer("Chapinero"));
+                    if(!((List)myTabla.leer("Chapinero")).isEmpty()){
+                        init((List)myTabla.leer("Chapinero"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                        tv.setVisibility(View.VISIBLE);
+
+                    }
 
 
                 }
                 if(respuestaFiltro == "Santa Fe"){
-                    init((List)myTabla.leer("Santa Fe"));
+                    if(!((List)myTabla.leer("Santa Fe")).isEmpty()){
+                        init((List)myTabla.leer("Santa Fe"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                        tv.setVisibility(View.VISIBLE);
+
+                    }
 
 
                 }
                 if(respuestaFiltro == "La Candelaria"){
-                    init((List)myTabla.leer("La Candelaria"));
+                    if(!((List)myTabla.leer("La Candelaria")).isEmpty()){
+                        init((List)myTabla.leer("La Candelaria"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                        tv.setVisibility(View.VISIBLE);
+
+                    }
 
 
                 }
                 if(respuestaFiltro == "San Cristobal"){
-                    init((List)myTabla.leer("San Cristobal"));
+                    if(!((List)myTabla.leer("San Cristobal")).isEmpty()){
+                        init((List)myTabla.leer("San Cristobal"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                        tv.setVisibility(View.VISIBLE);
+
+                    }
 
 
                 }
                 if(respuestaFiltro == "Usme"){
-                    init((List)myTabla.leer("Usme"));
+                    if(!((List)myTabla.leer("Usme")).isEmpty()){
+                        init((List)myTabla.leer("Usme"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                        tv.setVisibility(View.VISIBLE);
+
+                    }
 
 
                 }
                 if(respuestaFiltro == "Sumapaz"){
-                    init((List)myTabla.leer("Sumapaz"));
+                    if(!((List)myTabla.leer("Sumapaz")).isEmpty()){
+                        init((List)myTabla.leer("Sumapaz"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                        tv.setVisibility(View.VISIBLE);
+
+                    }
 
 
                 }
                 if(respuestaFiltro == "Ciudad Bolivar"){
-                    init((List)myTabla.leer("Ciudad Bolivar"));
+                    if(!((List)myTabla.leer("Ciudad Bolivar")).isEmpty()){
+                        init((List)myTabla.leer("Ciudad Bolivar"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                        tv.setVisibility(View.VISIBLE);
+
+                    }
 
 
                 }
                 if(respuestaFiltro == "Tunjuelito"){
-                    init((List)myTabla.leer("Tunjuelito"));
+                    if(!((List)myTabla.leer("Tunjuelito")).isEmpty()){
+                        init((List)myTabla.leer("Tunjuelito"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                    }
+
 
 
                 }
                 if(respuestaFiltro == "Rafael Uribe"){
-                    init((List)myTabla.leer("Rafael Uribe"));
+                    if(!((List)myTabla.leer("Rafael Uribe")).isEmpty()){
+                        init((List)myTabla.leer("Rafael Uribe"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                    }
+
 
 
                 }
                 if(respuestaFiltro == "Antonio Narinio"){
-                    init((List)myTabla.leer("Antonio Narinio"));
+                    if(!((List)myTabla.leer("Antonio Narinio")).isEmpty()){
+                        init((List)myTabla.leer("Antonio Narinio"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                    }
 
 
                 }
                 if(respuestaFiltro == "Kennedy"){
-                    init((List)myTabla.leer("Kennedy"));
+                    if(!((List)myTabla.leer("Kennedy")).isEmpty()){
+                        init((List)myTabla.leer("Kennedy"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                    }
 
 
                 }
                 if(respuestaFiltro == "Bosa"){
-                    init((List)myTabla.leer("Bosa"));
+                    if(!((List)myTabla.leer("Bosa")).isEmpty()){
+                        init((List)myTabla.leer("Bosa"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                    }
 
 
                 }
                 if(respuestaFiltro == "Puente Aranda"){
-                    init((List)myTabla.leer("Puente Aranda"));
+                    if(!((List)myTabla.leer("Puente Aranda")).isEmpty()){
+                        init((List)myTabla.leer("Puente Aranda"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                    }
 
 
                 }
                 if(respuestaFiltro == "Martires"){
-                    init((List)myTabla.leer("Martires"));
+                    if(!((List)myTabla.leer("Martires")).isEmpty()){
+                        init((List)myTabla.leer("Martires"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                    }
 
 
                 }
                 if(respuestaFiltro == "Teusaquillo"){
-                    init((List)myTabla.leer("Teusaquillo"));
+                    if(!((List)myTabla.leer("Teusaquillo")).isEmpty()){
+                        init((List)myTabla.leer("Teusaquillo"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                    }
 
 
                 }
                 if(respuestaFiltro == "Fontibon"){
-                    init((List)myTabla.leer("Fontibon"));
+                    if(!((List)myTabla.leer("Fontibon")).isEmpty()){
+                        init((List)myTabla.leer("Fontibon"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                    }
 
 
                 }
 
                 if(respuestaFiltro == "Engativa"){
-                    init((List)myTabla.leer("Engativa"));
+                    if(!((List)myTabla.leer("Engativa")).isEmpty()){
+                        init((List)myTabla.leer("Engativa"));
+                    }else{
+                        im.setImageResource(R.drawable.no_results);
+                        tv.setText("No se encontaron resultados en esta busqueda");
+                        im.setVisibility(View.VISIBLE);
+                    }
+
 
 
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -463,6 +590,12 @@ public class reportesLocalidad extends AppCompatActivity {
         recycler.setHasFixedSize(true);
         recycler.setLayoutManager(new LinearLayoutManager(this));
         recycler.setAdapter(listAdapter2);
+    }
+
+    public void irTodosReportes(View view){
+        Intent registro = new Intent(this,TodosLosReportes.class);
+        registro.putExtra("celular", celular);
+        startActivity(registro);
     }
 
 

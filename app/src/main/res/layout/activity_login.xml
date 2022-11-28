@@ -23,8 +23,8 @@
         android:id="@+id/logoAPP"
         android:layout_width="130dp"
         android:layout_height="104dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="70dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon" />
@@ -34,12 +34,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="160dp"
         android:layout_marginEnd="10dp"
         android:text="RedBog"
         android:textColor="@color/cardview_dark_background"
         android:textSize="34sp"
         app:layout_constraintEnd_toStartOf="@+id/logoAPP"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -97,31 +98,30 @@
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="1dp"
-        android:background="@color/purple_200"
+        android:background="@drawable/buttonbackground"
         android:onClick="loginVerificacion"
         android:text="CONECTAR"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contraseñaLogin" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="1dp"
-
-        android:background="@color/purple_200"
-        android:backgroundTint="#673AB7"
+        android:background="@drawable/buttondisabled"
         android:onClick="registrarUsuario"
         android:text="REGISTRARME"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/button"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
